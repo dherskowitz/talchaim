@@ -251,7 +251,6 @@ export default {
           this[cur_field] = true;
           this.form_valid = false;
         } else if (
-          field == "dateOfPassingYear" &&
           !/^\d+$/.test(this.form.dateOfPassingYear)
         ) {
           this.dateOfPassingYear_string_error = true;
@@ -285,32 +284,32 @@ export default {
 
       if (this.form_valid) {
         this.is_sending = true;
-        fetch(
-          "https://v1vznezqi4.execute-api.us-east-1.amazonaws.com/default/talchaim_email_function",
-          {
-            method: "post",
-            body: JSON.stringify(data)
-          }
-        )
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(data) {
-            if (data.status == "success") {
-              vm.is_sending = false;
-              vm.form_submitted = true;
-              for (let field in vm.form) {
-                vm.form[field] = "";
-              }
-            } else if (
-              (data.status && data.status == "error") ||
-              (data.message && data.message == "Internal Server Error")
-            ) {
-              vm.is_sending = false;
-              vm.form_submitted = false;
-              vm.submit_error = true;
-            }
-          });
+        // fetch(
+        //   "https://v1vznezqi4.execute-api.us-east-1.amazonaws.com/default/talchaim_email_function",
+        //   {
+        //     method: "post",
+        //     body: JSON.stringify(data)
+        //   }
+        // )
+        //   .then(function(response) {
+        //     return response.json();
+        //   })
+        //   .then(function(data) {
+        //     if (data.status == "success") {
+        //       vm.is_sending = false;
+        //       vm.form_submitted = true;
+        //       for (let field in vm.form) {
+        //         vm.form[field] = "";
+        //       }
+        //     } else if (
+        //       (data.status && data.status == "error") ||
+        //       (data.message && data.message == "Internal Server Error")
+        //     ) {
+        //       vm.is_sending = false;
+        //       vm.form_submitted = false;
+        //       vm.submit_error = true;
+        //     }
+        //   });
       }
     }
   }
