@@ -42,4 +42,9 @@ export default {
   color: #fff;
   padding: 1em 0;
 }
+@media (max-width: 768px) {
+  .contact {
+    padding: 2em 0 4em;
+  }
+}
 </style>

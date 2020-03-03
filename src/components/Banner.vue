@@ -28,10 +28,12 @@ export default {
 }
 .banner__caption {
   width: 40em;
+  max-width: 100%;
 }
 .banner__image {
   max-width: 100%;
   width: 300px;
+  margin: 0 1em;
 }
 .banner__title {
   font-size: 2em;
@@ -40,6 +42,14 @@ export default {
 .banner__subtitle {
   font-size: 1em;
 }
-.banner__content {
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+  }
+  .banner__image {
+    margin: 1em 0;
+  }
 }
 </style>

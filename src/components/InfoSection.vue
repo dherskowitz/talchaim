@@ -19,7 +19,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 75vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,5 +42,10 @@ export default {
 .info__content {
   width: 45em;
   margin: 1em auto;
+  max-width: 100%;
+}
+.info__content > p {
+  padding: 0 0.5em;
+  font-size: 1.25rem;
 }
 </style>

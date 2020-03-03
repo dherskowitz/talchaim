@@ -296,13 +296,16 @@ export default {
             return response.json();
           })
           .then(function(data) {
-            if (data.status == 'success') {
+            if (data.status == "success") {
               vm.is_sending = false;
               vm.form_submitted = true;
               for (let field in vm.form) {
                 vm.form[field] = "";
               }
-            } else if ((data.status && data.status == 'error') || (data.message && data.message == "Internal Server Error")) {
+            } else if (
+              (data.status && data.status == "error") ||
+              (data.message && data.message == "Internal Server Error")
+            ) {
               vm.is_sending = false;
               vm.form_submitted = false;
               vm.submit_error = true;
@@ -388,6 +391,16 @@ textarea {
 
   100% {
     transform: scale(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .kaddish {
+    padding: 1em 1em 3em;
+  }
+  .dateOfPassingFields,
+  .hebrewDateFields {
+    display: block;
   }
 }
 </style>

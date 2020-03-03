@@ -39,8 +39,6 @@ export default {
 
 <style scoped>
 .faq {
-  /* background: #00007f;
-  color: #fff; */
   padding: 2em 0 4em;
   display: flex;
   flex-direction: column;
@@ -63,5 +61,21 @@ export default {
 }
 .faq__answer {
   font-size: 1.25rem;
+}
+@media (max-width: 768px) {
+  .faq {
+    padding: 0em 1em 1em;
+  }
+  .faq__title {
+    font-size: 2rem;
+  }
+  .faq__question {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .faq__answer {
+    font-size: 1rem;
+    margin: 1rem 0 1.75rem;
+  }
 }
 </style>
