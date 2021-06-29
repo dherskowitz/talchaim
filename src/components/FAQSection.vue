@@ -1,5 +1,5 @@
 <template>
-  <section class="faq">
+  <section class="faq" id="faq">
     <span>
       <h2 class="faq__title">Frequently Asked Questions</h2>
       <div class="faq__qa" v-for="faq in faqs" :key="faq.questions">
@@ -43,21 +43,40 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   justify-content: space-around;
+  position: relative;
+  background-image: url(/bg1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 75vh;
+  z-index: 1;
+  color: #fff;
+  /* text-shadow: 1px 0px #fff; */
+}
+.faq::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(34, 49, 63, 0.7);
 }
 .faq__title {
   font-size: 2.5rem;
   text-decoration: underline;
-  color: #00007f;
+  color: #fff;
 }
 .faq__qa {
   max-width: 50em;
 }
 .faq__question {
-  color: #00007f;
+  color: #e4e9ed;
   font-size: 1.5rem;
   font-weight: 900;
+  /* text-shadow: 0px 1px #ccc;; */
 }
 .faq__answer {
   font-size: 1.25rem;

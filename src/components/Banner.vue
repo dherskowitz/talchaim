@@ -1,55 +1,79 @@
 <template>
-  <section class="banner">
-    <div class="banner__caption">
-      <h1 class="banner__title">Kaddish services for your loved one</h1>
-      <h2 class="banner__subtitle">In loving memory of Vital Lindsay-Bowman & Talya Solomon</h2>
-      <p
-        class="banner__content"
-      >Dedicated to the memory of our precious Winnie and Talya who both taught us the meaning of positivity, generosity, kindness, acceptance, resilience, laughter, forgiveness and a love of life. Thank you to you both for encouraging us to be our better selves.</p>
+    <div class="banner">
+        <div class="banner__content">
+            <h1 class="banner_title">Tal Chaim Kaddish Services</h1>
+            <p class="banner_text">Tal Chaim provides traditional Jewish Kaddish services in memory of your departed loved ones.</p>
+            <p class="banner_text">Kaddish transforms your sense of loss and helplessness into ongoing connection and meaning. </p>
+            <a href="#faq" id="learn_more_btn">Learn More</a>
+        </div>
     </div>
-    <g-image class="banner__image" src="~/images/tal.jpg" width="500" />
-  </section>
 </template>
 
 <script>
 export default {
-  name: "Banner"
+  name: "Banner",
 };
 </script>
 
 <style scoped>
 .banner {
-  background: #00007f;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 4em;
-  justify-content: space-around;
+    padding: 2em 0 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    columns: #fff;
+    background-image: url(/bg-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+    background-position: center bottom;
 }
-.banner__caption {
-  width: 40em;
-  max-width: 100%;
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 49, 63, 0.5);
+    z-index: -1;
 }
-.banner__image {
-  max-width: 100%;
-  width: 300px;
-  margin: 0 1em;
+.banner__content {
+    max-width: 50em;
 }
-.banner__title {
-  font-size: 2em;
-  margin: 0.67em 0;
+.banner_title {
+    font-size: 3rem;
+    text-decoration: underline;
+    color: #00007f;
 }
-.banner__subtitle {
-  font-size: 1em;
+.banner_text {
+    font-size: 1.5rem;
 }
+
+#learn_more_btn {
+    margin: 0 auto;
+    display: block;
+    width: 10rem;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 4rem;
+    background: #22313f;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+#learn_more_btn:hover {
+    background: #171f27;
+}
+
 @media (max-width: 768px) {
   .banner {
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-  }
-  .banner__image {
-    margin: 1em 0;
+    padding: 0em 1em 1em;
   }
 }
 </style>

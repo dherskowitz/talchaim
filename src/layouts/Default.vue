@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span id="top"></span>
     <!-- <header class="header">
       <strong>
         <g-link class="nav__link" to="/">{{ $static.metadata.siteName }}</g-link>
@@ -27,6 +28,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  padding-top: 50px;
 }
 .header {
   display: flex;

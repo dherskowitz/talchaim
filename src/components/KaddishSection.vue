@@ -1,7 +1,7 @@
 <template>
-  <section class="kaddish" v-bind:class="{ sending: is_sending }">
+  <section id="request" class="kaddish" v-bind:class="{ sending: is_sending }">
     <div class="kaddish-content">
-      <h2>Kaddish Services</h2>
+      <h2>Request Kaddish Services</h2>
       <h3>Have Kaddish recited in memory of your loved one!</h3>
       <p>Kaddish transforms your sense of loss and helplessness into ongoing connection and meaning. At the same time, it adds purpose and substance to the memory of the deceased. Jewish belief also maintains that the deceased is comforted with the knowledge that others are carrying on the eternal flame of Jewish tradition. When Kaddish is said for your loved one, you are connecting – to G-d, to yourself, and to the deceased.</p>
       <hr />
