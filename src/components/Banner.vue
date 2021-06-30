@@ -50,6 +50,8 @@ export default {
 }
 .banner_text {
     font-size: 1.5rem;
+    color: #fff;
+    font-weight: 600;
 }
 
 #learn_more_btn {
