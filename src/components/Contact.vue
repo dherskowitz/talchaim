@@ -1,7 +1,7 @@
 <template>
-    <div class="contact">
-        <p>If you have any questions please send us an email.</p>
-        <a href="mailto:talchaimkaddish@gmail.com">TalChaimKaddish@gmail.com</a>
+    <div class="bg-tc-default text-center py-16 text-white">
+        <p class="text-2xl">If you have any questions please send us an email.</p>
+        <a class="text-xl mt-4 inline-block" href="mailto:talchaimkaddish@gmail.com">TalChaimKaddish@gmail.com</a>
     </div>
 </template>
 
@@ -11,25 +11,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.contact {
-    text-align: center;
-
-    background: #00007f;
-    color: #fff;
-    padding: 4em 0;
-}
-.contact > p {
-    color: #fff;
-    font-size: 1.5rem;
-}
-.contact > a {
-    color: #fff;
-    font-size: 1.25rem;
-}
-@media (max-width: 768px) {
-    .contact {
-        padding: 2em 0 4em;
-    }
-}
-</style>
+<style scoped></style>

@@ -1,6 +1,8 @@
 <template>
-    <div class="donation">
-        <div class="donation__content">
+    <div
+        class="flex flex-col items-center justify-around relative z-10 px-8 py-16 bg-tc-default text-white text-center"
+    >
+        <div class="max-w-4xl my-4 mx-auto font-bold">
             <p>
                 It is a privilege and honour to be able to assist with this vital mitzvah. There is therefore no
                 obligation or expectation regarding remuneration for these services. It is however the Jewish belief
@@ -8,8 +10,10 @@
                 of the neshomah is said to be maximized when there is a 'connection' between the one saying Kaddish and
                 the deceased. The Rabbis point out that a token donation is sufficient to create this connection.
             </p>
-            <p>We have provided a link below should you choose to make a donation with this in mind.</p>
-            <button class="">DONATE</button>
+            <p class="my-4">We have provided a link below should you choose to make a donation with this in mind.</p>
+            <button class="bg-gray-600 hover:bg-gray-700 px-12 py-4 inline-block text-white font-semibold mt-4">
+                DONATE
+            </button>
         </div>
     </div>
 </template>
@@ -20,24 +24,4 @@ export default {
 };
 </script>
 
-<style>
-.donation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    z-index: 3;
-    padding: 2em 0 4em;
-    background: #00007f;
-    color: #fff;
-    text-align: center;
-}
-.donation__content {
-    width: 50em;
-    margin: 1em auto;
-    max-width: 100%;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-</style>
+<style></style>

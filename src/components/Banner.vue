@@ -1,35 +1,33 @@
 <template>
-    <div class="banner">
-        <div class="banner__content">
-            <h1 class="banner_title">Tal Chaim Kaddish Services</h1>
-            <p class="banner_text">Tal Chaim provides traditional Jewish Kaddish services in memory of your departed loved ones.</p>
-            <p class="banner_text">Kaddish transforms your sense of loss and helplessness into ongoing connection and meaning. </p>
-            <a href="#faq" id="learn_more_btn">Learn More</a>
+    <div
+        class="p-16 flex flex-col justify-around items-center bg-cover bg-no-repeat relative z-10 banner"
+        style="background-image: url(/bg-2.jpg);background-position:center bottom;"
+    >
+        <div class="max-w-4xl text-center">
+            <h1 class="text-5xl underline text-tc-default font-bold mb-8">Tal Chaim Kaddish Services</h1>
+            <p class="text-2xl text-white mb-4">
+                Tal Chaim provides traditional Jewish Kaddish services in memory of your departed loved ones.
+            </p>
+            <p class="text-2xl text-white">
+                Kaddish transforms your sense of loss and helplessness into ongoing connection and meaning.
+            </p>
+            <a
+                href="#faq"
+                id=""
+                class="bg-gray-900 hover:bg-gray-700 px-4 py-2 inline-block text-white font-semibold mt-4"
+                >Learn More</a
+            >
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: "Banner",
+    name: "Banner",
 };
 </script>
 
 <style scoped>
-.banner {
-    padding: 2em 0 4em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    columns: #fff;
-    background-image: url(/bg-2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: 1;
-    background-position: center bottom;
-}
 .banner::before {
     content: "";
     position: absolute;
@@ -39,43 +37,5 @@ export default {
     height: 100%;
     background: rgba(34, 49, 63, 0.5);
     z-index: -1;
-}
-.banner__content {
-    max-width: 50em;
-}
-.banner_title {
-    font-size: 3rem;
-    text-decoration: underline;
-    color: #00007f;
-}
-.banner_text {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 600;
-}
-
-#learn_more_btn {
-    margin: 0 auto;
-    display: block;
-    width: 10rem;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 4rem;
-    background: #22313f;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #fff;
-    cursor: pointer;
-}
-#learn_more_btn:hover {
-    background: #171f27;
-}
-
-@media (max-width: 768px) {
-  .banner {
-    padding: 0em 1em 1em;
-  }
 }
 </style>
