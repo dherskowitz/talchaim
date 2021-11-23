@@ -1,9 +1,9 @@
 <template>
-    <section id="request" class="px-12 py-16 relative" v-bind:class="{ sending: is_sending }">
+    <section id="request" class="relative px-12 py-16" v-bind:class="{ sending: is_sending }">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-center text-3xl">Request Kaddish Services</h2>
-            <h3 class="text-center text-2xl my-4">Have Kaddish recited in memory of your loved one!</h3>
-            <p class="text-xl mb-4">
+            <h2 class="text-3xl text-center">Request Kaddish Services</h2>
+            <h3 class="my-4 text-2xl text-center">Have Kaddish recited in memory of your loved one!</h3>
+            <p class="mb-4 text-xl">
                 Kaddish transforms your sense of loss and helplessness into ongoing connection and meaning. At the same
                 time, it adds purpose and substance to the memory of the deceased. Jewish belief also maintains that the
                 deceased is comforted with the knowledge that others are carrying on the eternal flame of Jewish
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="formSection dateOfPassing">
-                    <label class="block mt-4" for="dateOfPassing">English Date of Passing</label>
+                    <label class="block mt-4" for="dateOfPassing">English Date of Passing (and time if possible)</label>
                     <div class="flex">
                         <select id="dateOfPassingDay" v-model="form.dateOfPassingDay" name="dateOfPassingDay">
                             <option value selected>Please select a day</option>
@@ -83,6 +83,7 @@
                             placeholder="Please enter the year."
                             value
                         />
+                        <input type="time" name="timeOfPassing" v-model="form.timeOfPassing">
                     </div>
                     <FormError
                         v-if="
@@ -93,6 +94,27 @@
                         message="Please input a date"
                     />
                     <FormError v-if="dateOfPassingYear_string_error" message="Please input the year as a number" />
+                </div>
+                <div class="formSection">
+                    <label class="block mt-4" for="firstName">Date of Funeral</label>
+                    <div class="flex">
+                        <select id="dateOfFuneralDay" v-model="form.dateOfFuneralDay" name="dateOfFuneralDay">
+                            <option value selected>Please select a day</option>
+                            <option v-for="index in getNumbers(1, 32)" :key="index" :value="index">{{ index }}</option>
+                        </select>
+                        <select id="dateOfFuneralMonth" v-model="form.dateOfFuneralMonth" name="dateOfFuneralMonth">
+                            <option value selected>Please select a month</option>
+                            <option v-for="month in months" :value="month">{{ month }}</option>
+                        </select>
+                        <input
+                            type="text"
+                            name="dateOfFuneralYear"
+                            v-model="form.dateOfFuneralYear"
+                            placeholder="Please enter the year."
+                            value
+                        />
+                        <input type="time" name="timeOfPassing" v-model="form.timeOfPassing">
+                    </div>
                 </div>
                 <div class="formSection">
                     <label class="block mt-4" for="firstName">Your First Name</label>
@@ -131,7 +153,7 @@
                     />
                     <p class="centered">Tal Chaim will never share your email address or send unnecessary emails.</p>
                 </div>
-                <input class="btnGrey formSubmit mt-4" id="kaddishFormSubmit" type="submit" value="Submit" />
+                <input class="mt-4 btnGrey formSubmit" id="kaddishFormSubmit" type="submit" value="Submit" />
             </form>
         </div>
         <div class="sending_section" v-if="is_sending">
@@ -218,6 +240,10 @@ export default {
                 dateOfPassingDay: "",
                 dateOfPassingMonth: "",
                 dateOfPassingYear: "",
+                timeOfPassing: "",
+                dateOfFuneralDay: "",
+                dateOfFuneralMonth: "",
+                dateOfFuneralYear: "",
                 first_name: "",
                 last_name: "",
                 email: "",
@@ -274,15 +300,19 @@ export default {
                 this.form.dateOfPassingYear
             }`;
             let fullName = `${this.form.first_name} ${this.form.last_name}`;
+            let funeralDate = `${this.form.dateOfFuneralMonth}/${this.form.dateOfFuneralDay}/${this.form.dateOfFuneralYear}`;
+
 
             const data = {
                 hebrewPassingDate: hebrewPassingDate,
                 englishPassingDate: englishPassingDate,
+                timeOfPassing: this.form.timeOfPassing,
                 name: fullName,
                 email: this.form.email,
                 name_of_deceased: this.form.name_of_deceased,
                 gender: this.form.gender,
                 name_of_deceased_father: this.form.name_of_deceased_father,
+                funeralDate: funeralDate
             };
 
             if (this.form_valid) {
@@ -325,7 +355,7 @@ textarea {
     box-sizing: border-box;
     width: 100%;
 }
-.kaddish.sending .sending_section {
+.sending_section {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -338,7 +368,7 @@ textarea {
     align-items: center;
     font-size: 2rem;
 }
-.kaddish.sending .sending_section .sending_section__message {
+.sending_section .sending_section__message {
     animation: pulse 2s infinite;
 }
 @keyframes pulse {
