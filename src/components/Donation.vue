@@ -1,8 +1,8 @@
 <template>
     <div
-        class="flex flex-col items-center justify-around relative z-10 px-8 py-16 bg-tc-default text-white text-center"
+        class="relative z-10 flex flex-col items-center justify-around px-8 py-16 text-center text-white bg-tc-default"
     >
-        <div class="max-w-4xl my-4 mx-auto font-bold">
+        <div class="max-w-4xl mx-auto my-4 font-bold">
             <p>
                 It is a privilege and honour to be able to assist with this vital mitzvah. There is therefore no
                 obligation or expectation regarding remuneration for these services. It is however the Jewish belief
@@ -11,17 +11,20 @@
                 the deceased. The Rabbis point out that a token donation is sufficient to create this connection.
             </p>
             <p class="my-4">We have provided a link below should you choose to make a donation with this in mind.</p>
-            <button class="bg-gray-600 hover:bg-gray-700 px-12 py-4 inline-block text-white font-semibold mt-4">
-                DONATE
-            </button>
+
+            <DonateButton/>
+
         </div>
     </div>
 </template>
 
 <script>
+import DonateButton from "~/components/DonateButton"
 export default {
     name: "Donation",
+    components: {
+        DonateButton
+    }
 };
 </script>
-
 <style></style>
