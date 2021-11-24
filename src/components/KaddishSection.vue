@@ -45,6 +45,33 @@
                     />
                     <FormError v-if="name_of_deceased_father_empty_error" message="This field is required." />
                 </div>
+                <div class="flex formSection">
+                    <div class="w-1/2">
+                        <label class="block mt-4" for="yearOfPassing">Year of Passing</label>
+                        <input
+                            type="text"
+                            name="yearOfPassing"
+                            v-model="form.yearOfPassing"
+                            placeholder="Please enter the year."
+                            value
+                        />
+                         <FormError
+                                v-if="
+                                    yearOfPassing_empty_error
+                                "
+                                message="Please input a year"
+                            />
+                    </div>
+                    <div class="w-1/2">
+                        <label class="block mt-4" for="timeOfPassing">Time of Passing (if possible)</label>
+                        <input
+                            type="time"
+                            name="timeOfPassing"
+                            v-model="form.timeOfPassing"
+                            value
+                        />
+                    </div>
+                </div>
                 <div class="formSection hebrewDate">
                     <label class="block mt-4" for="hebDate">Hebrew Date of Passing (if possible)</label>
                     <div class="flex">
@@ -56,13 +83,6 @@
                             <option value selected>Please select a month</option>
                             <option v-for="month in hebrew_months" :value="month">{{ month }}</option>
                         </select>
-                        <input
-                            type="text"
-                            name="hebYear"
-                            v-model="form.hebYear"
-                            placeholder="Please enter the year."
-                            value
-                        />
                     </div>
                 </div>
                 <div class="formSection dateOfPassing">
@@ -76,19 +96,10 @@
                             <option value selected>Please select a month</option>
                             <option v-for="month in months" :value="month">{{ month }}</option>
                         </select>
-                        <input
-                            type="text"
-                            name="dateOfPassingYear"
-                            v-model="form.dateOfPassingYear"
-                            placeholder="Please enter the year."
-                            value
-                        />
-                        <input type="time" name="timeOfPassing" v-model="form.timeOfPassing">
                     </div>
                     <FormError
                         v-if="
-                            dateOfPassingYear_empty_error ||
-                                dateOfPassingMonth_empty_error ||
+                            dateOfPassingMonth_empty_error ||
                                 dateOfPassingDay_empty_error
                         "
                         message="Please input a date"
@@ -113,7 +124,6 @@
                             placeholder="Please enter the year."
                             value
                         />
-                        <input type="time" name="timeOfPassing" v-model="form.timeOfPassing">
                     </div>
                 </div>
                 <div class="formSection">
@@ -193,7 +203,7 @@ export default {
             name_of_deceased_father_empty_error: false,
             hebDayOfMonth_empty_error: false,
             hebMonth_empty_error: false,
-            hebYear_empty_error: false,
+            yearOfPassing_empty_error: false,
             dateOfPassingDay_empty_error: false,
             dateOfPassingMonth_empty_error: false,
             dateOfPassingYear_empty_error: false,
@@ -236,11 +246,11 @@ export default {
                 name_of_deceased_father: "",
                 hebDayOfMonth: "",
                 hebMonth: "",
-                hebYear: "",
                 dateOfPassingDay: "",
                 dateOfPassingMonth: "",
                 dateOfPassingYear: "",
                 timeOfPassing: "",
+                yearOfPassing: "",
                 dateOfFuneralDay: "",
                 dateOfFuneralMonth: "",
                 dateOfFuneralYear: "",
@@ -265,10 +275,9 @@ export default {
             this.name_of_deceased_father_empty_error = false;
             this.hebDayOfMonth_empty_error = false;
             this.hebMonth_empty_error = false;
-            this.hebYear_empty_error = false;
+            this.yearOfPassing_empty_error = false;
             this.dateOfPassingDay_empty_error = false;
             this.dateOfPassingMonth_empty_error = false;
-            this.dateOfPassingYear_empty_error = false;
             this.dateOfPassingYear_string_error = false;
             this.first_name_empty_error = false;
             this.last_name_empty_error = false;
@@ -278,9 +287,6 @@ export default {
                 if (this.form[field] == "") {
                     let cur_field = `${field}_empty_error`;
                     this[cur_field] = true;
-                    this.form_valid = false;
-                } else if (!/^\d+$/.test(this.form.dateOfPassingYear)) {
-                    this.dateOfPassingYear_string_error = true;
                     this.form_valid = false;
                 } else if (field == "email" && !this.validateEmail(this.form.email)) {
                     this.email_empty_error = true;
@@ -295,9 +301,9 @@ export default {
 
             this.validateForm();
 
-            let hebrewPassingDate = `${this.form.hebMonth}/${this.form.hebDayOfMonth}/${this.form.hebYear}`;
+            let hebrewPassingDate = `${this.form.hebMonth}/${this.form.hebDayOfMonth}/${this.form.yearOfPassing}`;
             let englishPassingDate = `${this.form.dateOfPassingMonth}/${this.form.dateOfPassingDay}/${
-                this.form.dateOfPassingYear
+                this.form.yearOfPassing
             }`;
             let fullName = `${this.form.first_name} ${this.form.last_name}`;
             let funeralDate = `${this.form.dateOfFuneralMonth}/${this.form.dateOfFuneralDay}/${this.form.dateOfFuneralYear}`;
